@@ -108,5 +108,25 @@ namespace Kata_Tennis.Tests
             // Assert
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [TestCase(4, 0, "Player1 Wins")]
+        [TestCase(4, 1, "Player1 Wins")]
+        [TestCase(4, 2, "Player1 Wins")]
+        [TestCase(0, 4, "Player2 Wins")]
+        [TestCase(1, 4, "Player2 Wins")]
+        [TestCase(2, 4, "Player2 Wins")]
+        [Category("Win Score")]
+        public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsNotAdvantageOrNotDeuceAndWillWin_ThenScoreShouldBeWinPlayerName(int player1Score, int player2Score, string expected)
+        {
+            // Arrange
+            AddScores(player1Score, player2Score);
+
+            // Act
+            var actual = _sut.PrintScore();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
     }
 }

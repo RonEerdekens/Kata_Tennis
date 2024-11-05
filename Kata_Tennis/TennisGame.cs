@@ -32,6 +32,11 @@ namespace Kata_Tennis
 
         public string PrintScore()
         {
+
+            if (IsWon())
+            {
+                return $"{(_player1Score > _player2Score ? _player1Name : _player2Name)} Wins";
+            }
             if (IsAdvantage())
             {
                 return $"Advantage {(_player1Score > _player2Score ? _player1Name : _player2Name)}";
@@ -40,6 +45,7 @@ namespace Kata_Tennis
             {
                 return "Deuce";
             }
+
             return $"{ScoreToString(_player1Score)}-{ScoreToString(_player2Score)}";
         }
 
@@ -58,6 +64,25 @@ namespace Kata_Tennis
                 return _player2Score - _player1Score == 1;
             }
             return false;
+        }
+        private bool IsWon()
+        {
+            bool isWon = false;
+            if (_player1Score >= 4)
+            {
+                if (_player1Score - _player2Score >= 2)
+                {
+                    isWon = true;
+                }
+            }
+            if (_player2Score >= 4)
+            {
+                if (_player2Score - _player1Score >= 2)
+                {
+                    isWon = true;
+                }
+            }
+            return isWon;
         }
         private string ScoreToString(int score)
         {

@@ -49,20 +49,15 @@ namespace Kata_Tennis
         }
         private bool IsAdvantage()
         {
-            bool isAdvantage = false;
-            if (_player1Score >= 3 && _player2Score >= 3)
+            if (_player1Score >= 3 && _player2Score >= 3 && _player1Score > _player2Score)
             {
-                if (_player1Score > _player2Score)
-                {
-                    isAdvantage = _player1Score - _player2Score == 1;
-                }
-                else if (_player2Score > _player1Score)
-                {
-                    isAdvantage = _player2Score - _player1Score == 1;
-                }
-
+                return _player1Score - _player2Score == 1;
             }
-            return isAdvantage;
+            if (_player1Score >= 3 && _player2Score >= 3 && _player1Score < _player2Score)
+            {
+                return _player2Score - _player1Score == 1;
+            }
+            return false;
         }
         private string ScoreToString(int score)
         {

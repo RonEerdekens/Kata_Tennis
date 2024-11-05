@@ -45,7 +45,7 @@ namespace Kata_Tennis
 
         private bool IsDeuce()
         {
-            return _player1Score == 3 && _player2Score == 3;
+            return _player1Score >= 3 && _player2Score >= 3 && _player1Score == _player2Score;
         }
         private bool IsAdvantage()
         {

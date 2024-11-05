@@ -10,29 +10,35 @@ namespace Kata_Tennis.Tests
     [TestFixture]
     public class TennisGameTests
     {
+        private TennisGame _sut;
+
+        [SetUp]
+        public void Setup()
+        {
+            _sut = new TennisGame("Player1", "Player2");
+        }
+
         [Test]
         public void GivenPlayerOneScored_WhenScoreIsLoveLove_ThenScoreShouldBeFifteenLove()
         {
             // Arrange
-            var game = new TennisGame("Player1", "Player2");
-            game.Player1Scored();
+            _sut.Player1Scored();
 
             // Act
-            var actual = game.PrintScore();
+            var actual = _sut.PrintScore();
 
             // Assert
             Assert.That(actual, Is.EqualTo("Fifteen-Love"));
         }
         [Test]
-        public void GivenPlayerOneScored_WhenScoreIsFifteenLove_ThenScoreShouldBeThirtyLove()
+        public void GivenPlayerOneScoredTwoTimes_WhenScoreIsLoveLove_ThenScoreShouldBeThirtyLove()
         {
             // Arrange
-            var game = new TennisGame("Player1", "Player2");
-            game.Player1Scored();
-            game.Player1Scored();
+            _sut.Player1Scored();
+            _sut.Player1Scored();
 
             // Act
-            var actual = game.PrintScore();
+            var actual = _sut.PrintScore();
 
             // Assert
             Assert.That(actual, Is.EqualTo("Thirty-Love"));

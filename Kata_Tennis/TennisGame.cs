@@ -32,7 +32,10 @@ namespace Kata_Tennis
 
         public string PrintScore()
         {
-
+            if (IsInvalidScore())
+            {
+                return "Invalid Score";
+            }
             if (IsWon())
             {
                 return $"{(_player1Score > _player2Score ? _player1Name : _player2Name)} Wins";
@@ -74,6 +77,18 @@ namespace Kata_Tennis
             if (_player2Score >= 4 && _player2Score - _player1Score >= 2)
             {
                 return true;
+            }
+
+            return false;
+        }
+        private bool IsInvalidScore()
+        {
+            if((_player1Score - _player2Score) >= 3 || (_player2Score - _player1Score) >= 3)
+            {
+                if ((_player1Score <= 4 && _player2Score >= 5) || (_player2Score <= 4 && _player1Score >= 5))
+                {
+                    return true;
+                }
             }
 
             return false;

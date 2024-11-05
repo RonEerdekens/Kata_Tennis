@@ -147,5 +147,23 @@ namespace Kata_Tennis.Tests
             Assert.That(actual, Is.EqualTo(expected));
         }
 
+        [TestCase(6, 3, "Invalid Score")]
+        [TestCase(3, 6, "Invalid Score")]
+        [TestCase(7, 4, "Invalid Score")]
+        [TestCase(4, 7, "Invalid Score")]
+        [TestCase(10,1, "Invalid Score")]
+        [TestCase(1, 10, "Invalid Score")]
+        [Category("Invalid Score")]
+        public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsInvalid_ThenScoreShouldBeInvalidScore(int player1Score, int player2Score, string expected)
+        {
+            // Arrange
+            AddScores(player1Score, player2Score);
+
+            // Act
+            var actual = _sut.PrintScore();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }

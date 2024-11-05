@@ -18,6 +18,18 @@ namespace Kata_Tennis.Tests
             _sut = new TennisGame("Player1", "Player2");
         }
 
+        private void AddScores(int player1Score, int player2Score)
+        {
+            for (int i = 0; i < player1Score; i++)
+            {
+                _sut.Player1Scored();
+            }
+            for (int i = 0; i < player2Score; i++)
+            {
+                _sut.Player2Scored();
+            }
+        }
+
         [TestCase(1, 0, "15-Love")]
         [TestCase(2, 0, "30-Love")]
         [TestCase(3, 0, "40-Love")]
@@ -36,14 +48,7 @@ namespace Kata_Tennis.Tests
         public void GivenPlayerOneScoredAndOrPlayerTwoScored_WhenScoreIsLoveLove_ThenScoreShouldBeCorrect(int player1Score, int player2Score, string expected)
         {
             // Arrange
-            for (int i = 0; i < player1Score; i++)
-            {
-                _sut.Player1Scored();
-            }
-            for (int i = 0; i < player2Score; i++)
-            {
-                _sut.Player2Scored();
-            }
+            AddScores(player1Score, player2Score);
 
             // Act
             var actual = _sut.PrintScore();
@@ -57,14 +62,7 @@ namespace Kata_Tennis.Tests
         public void GivenPlayerOneScoredThreeTimesAndPlayerTwoScoredTreeTimes_WhenScoreIsLoveLove_ThenScoreShouldBeDuece(int player1Score, int player2Score, string expected)
         {
             // Arrange
-            for (int i = 0; i < player1Score; i++)
-            {
-                _sut.Player1Scored();
-            }
-            for (int i = 0; i < player2Score; i++)
-            {
-                _sut.Player2Scored();
-            }
+            AddScores(player1Score, player2Score);
 
             // Act
             var actual = _sut.PrintScore();
@@ -79,14 +77,7 @@ namespace Kata_Tennis.Tests
         public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsDeuce_ThenScoreShouldBeAdvantagePlayerName(int player1Score, int player2Score, string expected)
         {
             // Arrange
-            for (int i = 0; i < player1Score; i++)
-            {
-                _sut.Player1Scored();
-            }
-            for (int i = 0; i < player2Score; i++)
-            {
-                _sut.Player2Scored();
-            }
+            AddScores(player1Score, player2Score);
 
             // Act
             var actual = _sut.PrintScore();
@@ -94,6 +85,6 @@ namespace Kata_Tennis.Tests
             // Assert
             Assert.That(actual, Is.EqualTo(expected));
         }
-
+       
     }
 }

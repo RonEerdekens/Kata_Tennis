@@ -89,6 +89,10 @@ namespace Kata_Tennis
                 {
                     return true;
                 }
+                if(_player1Score >= 5 || _player2Score >= 5)
+                {
+                    return true;
+                }
             }
 
             return false;

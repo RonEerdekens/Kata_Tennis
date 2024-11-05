@@ -32,6 +32,7 @@ namespace Kata_Tennis.Tests
         [TestCase(2, 3, "30-40")]
         [TestCase(3, 2, "40-30")]
         [TestCase(3, 1, "40-15")]
+        [Category("Normal Score")]
         public void GivenPlayerOneScoredAndOrPlayerTwoScored_WhenScoreIsLoveLove_ThenScoreShouldBeCorrect(int player1Score, int player2Score, string expected)
         {
             // Arrange
@@ -52,6 +53,7 @@ namespace Kata_Tennis.Tests
         }
 
         [TestCase(3, 3, "Deuce")]
+        [Category("Deuce Score")]
         public void GivenPlayerOneScoredThreeTimesAndPlayerTwoScoredTreeTimes_WhenScoreIsLoveLove_ThenScoreShouldBeDuece(int player1Score, int player2Score, string expected)
         {
             // Arrange
@@ -73,6 +75,7 @@ namespace Kata_Tennis.Tests
 
         [TestCase(4, 3, "Advantage Player1")]
         [TestCase(3, 4, "Advantage Player2")]
+        [Category("Advantage Score")]
         public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsDeuce_ThenScoreShouldBeAdvantagePlayerName(int player1Score, int player2Score, string expected)
         {
             // Arrange
@@ -91,5 +94,6 @@ namespace Kata_Tennis.Tests
             // Assert
             Assert.That(actual, Is.EqualTo(expected));
         }
+
     }
 }

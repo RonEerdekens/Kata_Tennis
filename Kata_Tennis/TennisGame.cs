@@ -67,22 +67,16 @@ namespace Kata_Tennis
         }
         private bool IsWon()
         {
-            bool isWon = false;
-            if (_player1Score >= 4)
+            if (_player1Score >= 4 && _player1Score - _player2Score >= 2)
             {
-                if (_player1Score - _player2Score >= 2)
-                {
-                    isWon = true;
-                }
+                return true;
             }
-            if (_player2Score >= 4)
+            if (_player2Score >= 4 && _player2Score - _player1Score >= 2)
             {
-                if (_player2Score - _player1Score >= 2)
-                {
-                    isWon = true;
-                }
+                return true;
             }
-            return isWon;
+
+            return false;
         }
         private string ScoreToString(int score)
         {

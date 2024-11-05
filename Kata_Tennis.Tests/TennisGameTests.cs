@@ -72,7 +72,13 @@ namespace Kata_Tennis.Tests
         }
 
         [TestCase(4, 3, "Advantage Player1")]
+        [TestCase(5, 4, "Advantage Player1")]
+        [TestCase(6, 5, "Advantage Player1")]
+        [TestCase(7, 6, "Advantage Player1")]
         [TestCase(3, 4, "Advantage Player2")]
+        [TestCase(4, 5, "Advantage Player2")]
+        [TestCase(5, 6, "Advantage Player2")]
+        [TestCase(6, 7, "Advantage Player2")]
         [Category("Advantage Score")]
         public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsDeuce_ThenScoreShouldBeAdvantagePlayerName(int player1Score, int player2Score, string expected)
         {
@@ -87,6 +93,9 @@ namespace Kata_Tennis.Tests
         }
 
         [TestCase(4, 4, "Deuce")]
+        [TestCase(5, 5, "Deuce")]
+        [TestCase(6, 6, "Deuce")]
+        [TestCase(7, 7, "Deuce")]
         [Category("Deuce Score")]
         public void GivenPlayerOneScoredOrPlayerTwoScored_WhenScoreIsAdvantage_ThenScoreShouldBeDeuce(int player1Score, int player2Score, string expected)
         {

@@ -97,6 +97,12 @@ namespace Kata_Tennis
 
             return false;
         }
+
+        public bool GameOver()
+        {
+            return IsWon();
+        }
+
         private string ScoreToString(int score)
         {
             switch (score)

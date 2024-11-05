@@ -32,11 +32,24 @@ namespace Kata_Tennis
 
         public string PrintScore()
         {
-            if (_player1Score == 2)
+            return $"{ScoreToString(_player1Score)}-{ScoreToString(_player2Score)}";
+        }
+
+        private string ScoreToString(int score)
+        {
+            switch (score)
             {
-                return "Thirty-Love";
+                case 0:
+                    return "Love";
+                case 1:
+                    return "15";
+                case 2:
+                    return "30";
+                case 3:
+                    return "40";
+                default:
+                    return "Invalid score";
             }
-            return "Fifteen-Love";
         }
     }
 }

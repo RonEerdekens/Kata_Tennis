@@ -28,7 +28,7 @@ namespace Kata_Tennis.Tests
             var actual = _sut.PrintScore();
 
             // Assert
-            Assert.That(actual, Is.EqualTo("Fifteen-Love"));
+            Assert.That(actual, Is.EqualTo("15-Love"));
         }
         [Test]
         public void GivenPlayerOneScoredTwoTimes_WhenScoreIsLoveLove_ThenScoreShouldBeThirtyLove()
@@ -41,7 +41,21 @@ namespace Kata_Tennis.Tests
             var actual = _sut.PrintScore();
 
             // Assert
-            Assert.That(actual, Is.EqualTo("Thirty-Love"));
+            Assert.That(actual, Is.EqualTo("30-Love"));
+        }
+        [Test]
+        public void GivenPlayerOneScoredThreeTimes_WhenScoreIsLoveLove_ThenScoreShouldBeFortyLove()
+        {
+            // Arrange
+            _sut.Player1Scored();
+            _sut.Player1Scored();
+            _sut.Player1Scored();
+
+            // Act
+            var actual = _sut.PrintScore();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo("40-Love"));
         }
     }
 }

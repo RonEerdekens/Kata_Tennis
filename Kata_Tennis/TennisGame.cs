@@ -21,9 +21,21 @@ namespace Kata_Tennis
             _player1Score = 0;
             _player2Score = 0;
         }
+        public void Player1Scored()
+        {
+            _player1Score++;
+        }
+        public void Player2Scored()
+        {
+            _player2Score++;
+        }
 
         public string PrintScore()
         {
+            if (_player1Score == 2)
+            {
+                return "Thirty-Love";
+            }
             return "Fifteen-Love";
         }
     }

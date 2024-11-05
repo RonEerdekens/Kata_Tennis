@@ -15,12 +15,27 @@ namespace Kata_Tennis.Tests
         {
             // Arrange
             var game = new TennisGame("Player1", "Player2");
+            game.Player1Scored();
 
             // Act
             var actual = game.PrintScore();
 
             // Assert
             Assert.That(actual, Is.EqualTo("Fifteen-Love"));
+        }
+        [Test]
+        public void GivenPlayerOneScored_WhenScoreIsFifteenLove_ThenScoreShouldBeThirtyLove()
+        {
+            // Arrange
+            var game = new TennisGame("Player1", "Player2");
+            game.Player1Scored();
+            game.Player1Scored();
+
+            // Act
+            var actual = game.PrintScore();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo("Thirty-Love"));
         }
     }
 }

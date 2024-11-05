@@ -51,6 +51,24 @@ namespace Kata_Tennis.Tests
             Assert.That(actual, Is.EqualTo(expected));
         }
 
-       
+        [TestCase(3, 3, "Deuce")]
+        public void GivenPlayerOneScoredThreeTimesAndPlayerTwoScoredTreeTimes_WhenScoreIsLoveLove_ThenScoreShouldBeDuece(int player1Score, int player2Score, string expected)
+        {
+            // Arrange
+            for (int i = 0; i < player1Score; i++)
+            {
+                _sut.Player1Scored();
+            }
+            for (int i = 0; i < player2Score; i++)
+            {
+                _sut.Player2Scored();
+            }
+
+            // Act
+            var actual = _sut.PrintScore();
+
+            // Assert
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }

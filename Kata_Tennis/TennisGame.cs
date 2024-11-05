@@ -32,6 +32,10 @@ namespace Kata_Tennis
 
         public string PrintScore()
         {
+            if (_player1Score == 3 && _player2Score == 3)
+            {
+                return "Deuce";
+            }
             return $"{ScoreToString(_player1Score)}-{ScoreToString(_player2Score)}";
         }
 
